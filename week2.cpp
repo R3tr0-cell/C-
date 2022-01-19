@@ -39,7 +39,7 @@ using namespace cst8219;
 
 int main(int argc, char **argv)
 {
-	Vehicle myVehicle;
+	Vehicle myVehicle(4);
    
    cout << "Hello World!" << endl;
    return 0;
