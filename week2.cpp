@@ -1,4 +1,3 @@
-
 #include<iostream>
 using namespace std;
 
@@ -36,11 +35,36 @@ using namespace cst8219;
 
 	};
 
-
 int main(int argc, char **argv)
 {
-	Vehicle myVehicle(4, 2);
+	int w, d;
+	Vehicle veh1;
+	cout << "Vehicle takes " << sizeof(veh1) << endl;
+	Vehicle veh2(4);
+	cout << "Vehicle takes " << sizeof(veh1) << endl;
+	Vehicle veh3(4, 2);
+	cout << "Vehicle takes " << sizeof(veh1) << endl;
    
+	int leave = 0;
+	string quit = "s";
+
+	while (leave == 0) {
+		Vehicle* pVehicle;
+		cout << "enter number of doors" << endl;
+		cin >> d;
+		cout << "enter number of wheels" << endl;
+		cin >> w;
+
+		pVehicle = new Vehicle(w, d);
+
+		cout << "Would you like to quit or stay?(q/s): " << endl;
+		cin >> quit;
+		if (quit == "q") {
+			leave = 1;
+		}
+		delete pVehicle;//As the destructor should be called each time it iterates again
+	}
+
    cout << "Hello World!" << endl;
    return 0;
 }
