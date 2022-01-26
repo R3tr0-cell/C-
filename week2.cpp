@@ -1,4 +1,10 @@
 #include<iostream>
+/*
+Dylan Carroll
+January 25h
+Lab 01
+Lab Prof: Kaci Taouch
+*/
 using namespace std;
 
 namespace cst8219 {
@@ -13,7 +19,7 @@ using namespace cst8219;
 		int numDoors;
 
 	public:
-		Vehicle(int w, int d) {
+		Vehicle(int w, int d) { // constructors 
 			cout << "In constructor with 2 parameters" << endl;
 			numWheels = w;
 			numDoors = d;
@@ -21,7 +27,7 @@ using namespace cst8219;
 		}
 		Vehicle(int w) {
 			cout << "In constructor with 1 parameters, wheels = " << w << endl;
-			Vehicle(w, 4);
+			Vehicle(w, 4); //mfc? 
 		}
 		Vehicle() {
 			cout << "In constructor with 0 parameters" << endl;
@@ -49,15 +55,25 @@ int main(int argc, char **argv)
 	string quit = "s";
 
 	while (leave == 0) {
-		Vehicle* pVehicle;
+		Vehicle* pVehicle; // Pointer for vehicle 
 		cout << "enter number of doors" << endl;
-		cin >> d;
+
+	
+		while (!(cin >> d ) || d < 0) { // input validation
+			cout << "Please make sure to enter a positive integer" << endl;
+			cin.clear();
+			cin.ignore(256, '\n');
+		}
 		cout << "enter number of wheels" << endl;
-		cin >> w;
+		while (!(cin >> w) || w < 0) { // input validation
+			cout << "Please make sure to enter a positive integer" << endl;
+			cin.clear();
+			cin.ignore(256, '\n');
+		}
 
 		pVehicle = new Vehicle(w, d);
 
-		cout << "Would you like to quit or stay?(q/s): " << endl;
+		cout << "Would you like to quit or stay and make another vehicle?(q/s): " << endl;
 		cin >> quit;
 		if (quit == "q") {
 			leave = 1;
